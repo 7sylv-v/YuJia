@@ -1,0 +1,194 @@
+/* 页面整体样式 */
+body {
+    font-family: 'Fangzheng Xiaobiao Song', serif;
+    color: #5a4636;
+    background-color: #f8f5f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* 宣传图部分 */
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.banner-title {
+    position: absolute;
+    bottom: 25%;
+    left: 5%;
+    font-size: 48px;
+    color: #fffcee;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 介绍部分 */
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 50px auto;
+    gap: 40px;
+}
+
+.about-text {
+    width: 50%;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    
+}
+
+.about-text p {
+    font-family: 'Fangzheng Xiaobiao Song', serif;
+    font-size: 20px;
+    color: #6D4C41;
+    line-height: 1.6;
+}
+
+/* 右侧图片 */
+.about-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+    }
+
+    .about-text {
+        margin-bottom: 20px;
+    }
+}
+
+/* 特点和优势部分 */
+.advantages-container {
+    width: 80%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* 中标题 */
+.advantages-title {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* 三个部分的容器 */
+.advantages-content {
+    display: flex;
+    justify-content: space-between; /* 使三部分均匀排列 */
+    gap: 40px; /* 控制间距 */
+}
+
+/* 单个优势部分 */
+.advantage-box {
+    flex: 1; /* 让每个盒子均匀占据空间 */
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 小标题 */
+.advantage-box h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 文字内容 */
+.advantage-box p {
+    font-size: 16px;
+    color: #6D4C41;
+    line-height: 1.6;
+}
+
+/* 悬停交互 */
+.advantage-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .advantages-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* 欢迎加入我们部分 */
+.join-container {
+    width: 80%;
+    margin: 80px auto;
+    text-align: center;
+}
+
+/* 中标题 */
+.join-title {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* 图片滚动视差部分 */
+.join-images {
+    display: flex;
+    justify-content: flex-start; /* 图片初始位置偏移，形成视差效果 */
+    gap: 20px; /* 图片间距 */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* 单个图片容器 */
+.join-image {
+    flex-shrink: 0;
+    width: 20vw; /* 设定固定比例宽度 */
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: transform 0.5s ease-out;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .join-image {
+        width: 30vw;
+        height: 20vh;
+    }
+}
+
