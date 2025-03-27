@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-    background-image: url(./img/bg2.png), url(./img/bg3.png);
+    background-image: url(/YuJia/img/bg2.png), url(/YuJia/img/bg3.png);
     background-repeat: repeat-y, repeat-y; /* 避免重复 */
     background-position: bottom right, left;
     background-size: cover, cover; /* 完全覆盖背景 */
