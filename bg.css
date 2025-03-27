@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+
+    text-decoration: none;
+   
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url(./img/bg2.png), url(./img/bg3.png);
+    background-repeat: repeat-y, repeat-y; /* 避免重复 */
+    background-position: bottom right, left;
+    background-size: cover, cover; /* 完全覆盖背景 */
+    margin: 0; /* 防止页面外边距造成的空白 */
+    padding: 0; /* 防止页面内边距 */
+}
+
+header {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: space-between; /* 左右对齐 */
+    align-items: center; /* 垂直居中 */
+    padding: 15px 20px; /* 内边距 */
+    border-bottom: 2px solid #ccc; /* 下边框 */
+    background-color: #B7A27A;
+    font-family: 'FangSong', '仿宋', serif; /* 设置字体为仿宋 */
+}
+.logo img {
+    width: 19.2%; /* 设置图片宽度为 header 宽度的 19.2% */
+    height: auto; /* 保持图片比例 */
+}
+
+/* 导航栏样式 */
+.navbar ul {
+    display: flex; /* 横向排列 */
+    justify-content: center;
+    align-items: center;
+    list-style: none; /* 移除列表样式 */
+    padding: 0;
+    margin: 0;
+    gap: 80px; /* 列表项间距 */
+    margin-right: 80px;
+}
+
+.navbar a {
+    position: relative; /* 为伪元素提供定位上下文 */
+    text-decoration: none; /* 去掉默认下划线 */
+    color: #fffff4; /* 默认文字颜色 */
+    font-size: clamp(18px, 3vw, 32px); /* 自适应字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    text-align: center; /* 文字居中对齐 */
+    display: inline-block; /* 让链接成为块级元素，便于控制伪元素 */
+    transition: color 0.3s ease; /* 添加过渡效果 */
+}
+
+.navbar a:hover {
+    color: #fffcee; /* 淡黄色文字颜色 */
+    text-shadow: 0 0 10px rgba(255, 241, 160, 0.7), 0 0 20px rgba(255, 215, 0, 0.5); /* 添加发光效果 */
+}
+
+
+.navbar a::after {
+    content: ""; /* 伪元素内容为空 */
+    position: absolute; /* 绝对定位，便于控制位置 */
+    left: 50%; /* 水平居中 */
+    bottom: -8px; /* 距离文字底部8px */
+
+    transform: translateX(-50%); /* 通过偏移50%宽度来确保居中 */
+    width: 32px; /* 固定宽度，替代百分比 */
+    height: 20px; /* 固定高度 */
+
+    background-image: url('./img/underline.svg'); /* 边框图片 */
+    background-size: contain; /* 图片完整显示 */
+    background-repeat: no-repeat; /* 禁止重复 */
+    opacity: 0; /* 初始透明 */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 过渡动画 */
+    transform: scaleX(0); /* 初始缩放为 0 */
+    filter: drop-shadow(0 0 10px rgba(255, 241, 160, 0.7)); /* 添加发光效果 */
+}
+
+.navbar a:hover::after {
+    opacity: 1; /* 鼠标悬浮时显示 */
+    transform: translateX(-50%) scaleX(1); /* 横向展开 */
+}
+
+/* 脚注样式 */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: #B7A27A;
+    
+}
+.social-media img {
+    width: 4%; /* 设置图片宽度为原始大小的50% */
+    height: auto; /* 高度自动调整以保持图片的宽高比 */
+}
+footer p{
+    font-size: 18px;
+    margin-top: 50px;
+    color: #fffcee;
+    /* font-family: 'FangSong', '仿宋', serif; 设置字体为仿宋 */
+}

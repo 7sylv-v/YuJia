@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茶泡文化</title>
+    <link rel="stylesheet" href="../bg.css">
+    <link rel="stylesheet" href="./craft.css">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo" width="80" loading="lazy">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="/culture/culture.html">茶泡文化</a></li>
+                <li><a href="/craft/craft.html">关于产品</a></li>
+                <li><a href="/event/event.html">雅集共赏</a></li>
+                <li><a href="/about_us/us.html">加入我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="banner">
+        <img src="./thumb.jpg" alt="关于我们">
+        <h1 class="banner-title">关于产品</h1>
+    </section>
+    
+    <!-- HTML结构优化 -->
+    <div class="product-wrapper">
+        <!-- 左侧产品分类导航 -->
+        <nav class="product-nav">
+            <h3 class="series-title">产品系列</h3>
+            <ul class="series-list">
+                <li class="series-item active" data-category="fresh-milk-tea">
+                    <span class="chinese">“醒·兽”—屋脊兽</span>
+                    <div class="underline"></div>
+                </li>
+                <li class="series-item" data-category="cloud-top">
+                    <span class="chinese">茶嫁家礼盒</span>
+                    <div class="underline"></div>
+                </li>
+                <!-- 更多系列项... -->
+            </ul>
+        </nav>
+
+        <!-- 右侧产品画廊 -->
+        <div class="product-gallery">
+            <section class="product-category" data-category="xingShou">
+                <div class="category-header">
+                    <!-- <h2>“醒·兽”—屋脊兽</h2>
+                    <p class="slogan">~</p> -->
+                </div>
+                <div class="product-grid">
+                    <div class="product-img">
+                        <img src="./product/product1/xingShou1.png" alt="醒兽1" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-category" data-category="chaJiaJia">
+                <div class="category-header">
+                    <!-- <h2>茶嫁家礼盒</h2>
+                    <p class="slogan">~</p> -->
+                </div>
+                <div class="product-grid">
+                    <div class="product-img">
+                        <img src="./product/product2/chaJiaJia1.jpg" alt="茶嫁家礼盒" loading="lazy">
+                    </div>
+                    <!-- 更多产品卡片... -->
+                </div>
+            </section>
+            <!-- 更多系列区块... -->
+        </div>
+    </div>
+
+    <!-- 底部链接部分 -->
+    <footer>
+        <div class="social-media">
+            <a href="#">
+                <img src="../img/bilibili.svg" alt="Bilibili">
+            </a>
+            <a href="#">
+                <img src="../img/抖音.svg" alt="TikTok">
+            </a>
+            <a href="https://www.xiaohongshu.com/user/profile/65aa1db7000000000e003894" target="_blank">
+                <img src="../img/小红书.svg" alt="小红书">
+            </a>
+            <a href="#">
+                <img src="../img/微博.svg" alt="微博">
+            </a>
+        </div>
+        <p>版权所有 © 2024 鬰家·妆点时光</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="culture.js"></script>
+
+</body>
+</html>
