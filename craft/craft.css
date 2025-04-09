@@ -43,154 +43,166 @@ body{
 
 /* 现代东方美学样式 */
 .product-wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 40px;
-    max-width: 1440px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 10px; /* 左右留白 */
+    gap: 10px;
+  }
+  
+  .product-list {
+    width: 200px;
+    padding: 40px 15px;
+    background: #fffefbf4;
+    position: sticky; 
+    top: 0px; /* 距离顶部距离 */
+    align-self: flex-start; /* 对齐顶部 */
+    height: calc(100vh - 340px); /* 视口高度减去banner和间距 */
+    overflow-y: auto;
+  }
 
-/* 左侧导航栏 */
-.series-list {
-    border-right: 1px solid rgba(255,255,255,0.1);
-    padding-right: 2rem;
-}
-
-.series-item {
-    padding: 1.5rem;
-    cursor: pointer;
+  .product-list .list-header {
+    font-size: 48px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .product-list ul {
+    font-family: "黑体", "SimHei", sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .product-list li {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .product-list a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 22px;
+    font-weight: normal;
     transition: all 0.3s ease;
     position: relative;
-}
-
-.series-item.active {
-    background: rgba(255,255,255,0.05);
-}
-
-.series-title{
-    margin-top: 120px;
-    font-size: 48px;
-    font-weight: bolder;
-}
-
-.chinese {
-    font-size: 20px;
-    font-family: 'Fangzheng Xiaobiao Song', serif;
-
-}
-
-.category-header p{
-    font-size: 20px;
-}
-.underline {
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .product-list li.active a {
+    
+    color: #a47d1c;
+  }
+  
+  .product-list li.active a::after {
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 2px;
-    background: #D4A95D;
-    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.series-item.active .underline {
     width: 100%;
+    height: 2px;
+    background: #a47d1c;
+    animation: underlineIn 0.3s forwards;
+  }
+  
+  @keyframes underlineIn {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes underlineOut {
+    from { width: 100%; }
+    to { width: 0; }
+  }
+  
+  .product-display {
+    width: 70%;
+    margin-left: 20px;
+    height: auto;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    mask-image: linear-gradient(to top, transparent, black 20px);
+  }
+  /* Chrome/Safari/Opera */
+
+  .product-display::-webkit-scrollbar {
+  display: none;
 }
 
-/* 右侧产品展示 */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
-}
-
-.product-card {
-    background: rgba(255,255,255,0.9);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-category{
-    aspect-ratio: 4/3;
-    width: 900px;/* 强制4:3比例[4](@ref) */
-    
-}
-/* 图片容器比例控制 */
-.product-img {
+  
+  .product-item {
+    width: 100%;
+    height: 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 56.25%; /* 16:9 比例 (9/16=0.5625) */
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(58,46,38,0.1);
+    scroll-snap-align: start;
+    background: #ffffff; /* 备用背景色 */
 }
 
-/* 图片填充方式优化 */
-.product-img img {
+.product-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 智能裁剪保持比例[3](@ref) */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
-
-/* 悬浮动效增强 */
-.product-img:hover img {
-    transform: scale(1.05);
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
+  
+  .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .product-item:hover .product-overlay {
+    opacity: 1;
+  }
+  
+  /* 楼梯效果 */
+  .product-item:nth-child(odd) {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .product-item:nth-child(even) {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
     .product-wrapper {
-        grid-template-columns: 1fr;
+      flex-direction: column;
     }
-    
-    .series-list {
-        border-right: none;
-        padding-right: 0;
-    }
-}
-
-
-/* 导航项动效优化 */
-.nav-item {
-    position: relative;
-    padding: 1rem 2rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.underline {
-    width: 0;
-    height: 2px;
-    background: var(--golden-amber);
-    transition: width 0.5s ease-in-out;
-}
-
-.nav-item.active .underline {
-    width: 100%; /* 激活状态动画[3](@ref) */
-}
-
-/* 图片悬停动效 */
-.product-img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(58,46,38,0.15);
-}
-
-@media (max-width: 768px) {
     .product-list {
-        flex-direction: column; /* 纵向排列导航项[1](@ref) */
-        align-items: center;
+      width: 100%;
+      height: auto;
+      position: static;
     }
-    
-    .product-gallery {
-        grid-template-columns: 1fr; /* 单列布局[4](@ref) */
+    .product-display {
+      width: 100%;
+      margin-left: 0;
     }
-    
-    .product-img {
-        aspect-ratio: 4/3; /* 保持图片比例[3](@ref) */
-    }
-}
+  }
