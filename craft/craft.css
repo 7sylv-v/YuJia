@@ -1,6 +1,6 @@
 /* ===== 基础样式 ===== */
 body {
-  font-family: 'Fangzheng Xiaobiao Song', 'SimSun', serif;
+  font-family: 'Fangzheng Xiaobiao Song', serif;
   font-weight: 800;
   background-color: #f9f9f9;
   margin: 0;
@@ -12,7 +12,6 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 2rem;
 }
 
 .banner img {
@@ -25,159 +24,254 @@ body {
   position: absolute;
   bottom: 25%;
   left: 5%;
-  font-size: 3rem;
+  font-size: 48px;
   color: #fffcee;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== 产品包装容器 ===== */
+.relative {
+  position: relative;
+}
+.relative img {
+  width: 100%;
+}
+.aboutProduct p {
+  font-size: 64px;
+}
+
+/* ===== 现代东方美学样式 - 修改版 ===== */
 .product-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  gap: 20px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
   position: relative;
-  overflow: hidden;
 }
 
-/* ===== 列表头部 ===== */
-.list-header {
+/* 新增：产品左侧容器 */
+.product-left {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.list-header h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.list-header p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ===== 产品列表 ===== */
-.product-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* ===== 产品展示 ===== */
-.product-display {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border: 2px solid #e0e0e0;
+  width: 200px;
+  padding: 40px 15px;
+  background: #fffefbf4;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  height: calc(100vh - 340px);
+  overflow-y: auto;
   border-radius: 8px;
-  padding: 1.5rem;
+}
+
+.product-list {
+  width: 100%;
+}
+
+.product-list .list-header {
+  font-size: 48px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-list ul {
+  font-family: "黑体", "SimHei", sans-serif;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.product-list a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 22px;
+  font-weight: normal;
   transition: all 0.3s ease;
   position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.product-display:hover {
-  border-color: #c0c0c0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.product-list li.active a {
+  color: #a47d1c;
 }
 
-.product-image {
-  flex: 0 0 40%;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.product-image img {
+.product-list li.active a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
+  height: 2px;
+  background: #a47d1c;
+  animation: underlineIn 0.3s forwards;
 }
 
-.product-display:hover .product-image img {
+@keyframes underlineIn {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes underlineOut {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+/* ===== 产品展示区域 ===== */
+.product-display {
+  width: calc(100% - 240px);
+  height: auto;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(to top, transparent, black 20px);
+  background: transparent;
+}
+
+.product-display::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== 产品项优化 ===== */
+.product-item {
+  width: 100%;
+  margin: 50px 0;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* 16:9 图片容器 */
+.product-item::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 比例 */
+}
+
+.product-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-item:hover {
+  border-color: #c0c0c0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-item:hover img {
   transform: scale(1.03);
 }
 
-.product-info {
-  flex: 1;
-  padding: 0 1.5rem;
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 6px;
 }
 
-.product-info h3 {
-  font-size: 1.8rem;
-  color: #222;
-  margin-bottom: 0.5rem;
+.product-item:hover .product-overlay {
+  opacity: 1;
 }
 
-.product-info p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+/* 楼梯效果保持 */
+.product-item:nth-child(odd) {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
 }
 
-.price {
-  font-size: 1.5rem;
-  color: #e63946;
-  font-weight: bold;
+.product-item:nth-child(even) {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
 }
 
-/* ===== 移动端适配 ===== */
+/* ===== 响应式调整 ===== */
 @media (max-width: 768px) {
+  .product-wrapper {
+      flex-direction: column;
+      padding: 1.5rem;
+      margin: 1rem auto;
+  }
+
+  .product-left {
+      width: 100%;
+      position: static;
+      height: auto;
+      padding: 20px 15px;
+      margin-bottom: 20px;
+  }
+
+  .product-list .list-header {
+      font-size: 36px;
+  }
+
+  .product-list a {
+      font-size: 18px;
+  }
+
+  .product-display {
+      width: 100%;
+  }
+
+  .product-item {
+      margin: 30px 0;
+  }
+
   .banner-title {
-      font-size: 2rem;
+      font-size: 36px;
       bottom: 15%;
   }
-
-  .product-wrapper {
-      padding: 1.5rem;
-      margin: 1rem;
-      border-radius: 8px;
-  }
-
-  .list-header h2 {
-      font-size: 2rem;
-  }
-
-  .list-header p {
-      font-size: 1rem;
-      padding: 0 1rem;
-  }
-
-  .product-display {
-      flex-direction: column;
-      padding: 1rem;
-  }
-
-  .product-image {
-      flex: 0 0 auto;
-      width: 100%;
-      margin-bottom: 1rem;
-  }
-
-  .product-info {
-      padding: 0;
-      text-align: center;
-  }
-
-  .product-info h3 {
-      font-size: 1.5rem;
-  }
 }
 
-/* ===== 平板设备适配 ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
   .product-wrapper {
-      margin: 2rem 1.5rem;
+      padding: 1.5rem;
   }
 
-  .product-display {
-      padding: 1.2rem;
+  .product-left {
+      width: 180px;
+      padding: 30px 10px;
+  }
+
+  .product-list .list-header {
+      font-size: 36px;
+  }
+
+  .product-list a {
+      font-size: 18px;
   }
 }
