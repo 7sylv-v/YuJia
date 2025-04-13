@@ -1,196 +1,283 @@
-
-body{
-    font-family: 'Fangzheng Xiaobiao Song', serif;
-    font-weight: 800;
-    /* background-color: linear-gradient(var(--tea-white) 60%, #fff); */
+/* ===== 基础样式 ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-/* 宣传图部分 */
+/* ===== 宣传图部分 ===== */
 .banner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  margin-top: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .banner img {
-    width: 100%;
-    height: auto;
-    display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
-
 
 .banner-title {
-    position: absolute;
-    bottom: 25%;
-    left: 5%;
-    font-size: 48px;
-    color: #fffcee;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.relative {
-    position: relative;
-}
-.relative img{
-    width: 100%;
-}
-.aboutProduct p{
-   font-size: 64px;
-
+  position: absolute;
+  bottom: 60px;
+  left: 5%;
+  font-size: 48px;
+  color: #fffcee;
+  font-weight: bold;
+  font-family: 'Fangzheng Xiaobiao Song', serif;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 
-/* 现代东方美学样式 */
+
+/* ===== 现代东方美学样式 - 修改版 ===== */
 .product-wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 40px;
-    max-width: 1440px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+  display: flex;
+  margin: 0 120px;
+  padding: 2rem;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-/* 左侧导航栏 */
-.series-list {
-    border-right: 1px solid rgba(255,255,255,0.1);
-    padding-right: 2rem;
+/* 新增：产品左侧容器 */
+.product-left {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 40px 15px;
+  background: #ffffff;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  
+  overflow-y: auto;
+  border-radius: 8px;
 }
 
-.series-item {
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
+.product-list {
+  width: 100%;
 }
 
-.series-item.active {
-    background: rgba(255,255,255,0.05);
+.list-header{
+  font-family: 'Fangzheng Xiaobiao Song', serif;
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e045;
+  margin-bottom: 45px;
+  color: #333;
+  text-align: center;
+}
+/* 方案1样式 */
+fieldset {
+  border: none;
+  margin-bottom: 40px;
+  padding: 0;
+}
+legend {
+  font-weight:500;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.series-title{
-    margin-top: 120px;
-    font-size: 48px;
-    font-weight: bolder;
+
+.product-list ul {
+  font-family: "黑体", "SimHei", sans-serif;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.chinese {
-    font-size: 20px;
-    font-family: 'Fangzheng Xiaobiao Song', serif;
-
+.product-list li{
+  margin-bottom: 30px;
+  position: relative;
 }
 
-.category-header p{
-    font-size: 20px;
-}
-.underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #D4A95D;
-    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.product-list a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 22px;
+  font-weight: normal;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.series-item.active .underline {
-    width: 100%;
+.product-list li.active a {
+  color: #a47d1c;
 }
 
-/* 右侧产品展示 */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+.product-list li.active a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #a47d1c;
+  animation: underlineIn 0.3s forwards;
 }
 
-.product-card {
-    background: rgba(255,255,255,0.9);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+@keyframes underlineIn {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
+@keyframes underlineOut {
+  from { width: 100%; }
+  to { width: 0; }
 }
 
-.product-category{
-    aspect-ratio: 4/3;
-    width: 900px;/* 强制4:3比例[4](@ref) */
-    
-}
-/* 图片容器比例控制 */
-.product-img {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(58,46,38,0.1);
-}
-
-/* 图片填充方式优化 */
-.product-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 智能裁剪保持比例[3](@ref) */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* ===== 产品展示区域 ===== */
+.product-display {
+  width: calc(100% - 240px);
+  height: auto;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(to top, transparent, black 20px);
+  background: transparent;
+  justify-items: center;
+  align-items: center;
 }
 
-/* 悬浮动效增强 */
-.product-img:hover img {
-    transform: scale(1.05);
+.product-display::-webkit-scrollbar {
+  display: none;
 }
 
-/* 响应式设计 */
+/* ===== 产品项优化 ===== */
+.product-item {
+  width: 80%;
+  margin: 50px 0;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 0.5px solid #e0e0e027;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* 16:9 图片容器 */
+.product-item::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 比例 */
+}
+
+.product-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-item:hover {
+  border-color: #c0c0c0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-item:hover img {
+  transform: scale(1.03);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 6px;
+}
+
+.product-item:hover .product-overlay {
+  opacity: 1;
+}
+
+/* 楼梯效果保持 */
+.product-item:nth-child(odd) {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+.product-item:nth-child(even) {
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+/* ===== 响应式调整 ===== */
 @media (max-width: 768px) {
-    .product-wrapper {
-        grid-template-columns: 1fr;
-    }
-    
-    .series-list {
-        border-right: none;
-        padding-right: 0;
-    }
+  .product-wrapper {
+      flex-direction: column;
+      padding: 1.5rem;
+      margin: 1rem auto;
+  }
+
+  .product-left {
+      width: 100%;
+      position: static;
+      height: auto;
+      padding: 20px 15px;
+      margin-bottom: 20px;
+  }
+
+  .product-list .list-header {
+      font-size: 36px;
+  }
+
+  .product-list a {
+      font-size: 18px;
+  }
+
+  .product-display {
+      width: 100%;
+  }
+
+  .product-item {
+      margin: 30px 0;
+  }
+
+  .banner-title {
+      font-size: 36px;
+      bottom: 15%;
+  }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-wrapper {
+      padding: 1.5rem;
+  }
 
-/* 导航项动效优化 */
-.nav-item {
-    position: relative;
-    padding: 1rem 2rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  .product-left {
+      width: 180px;
+      padding: 30px 10px;
+  }
 
-.underline {
-    width: 0;
-    height: 2px;
-    background: var(--golden-amber);
-    transition: width 0.5s ease-in-out;
-}
+  .product-list .list-header {
+      font-size: 36px;
+  }
 
-.nav-item.active .underline {
-    width: 100%; /* 激活状态动画[3](@ref) */
-}
-
-/* 图片悬停动效 */
-.product-img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(58,46,38,0.15);
-}
-
-@media (max-width: 768px) {
-    .product-list {
-        flex-direction: column; /* 纵向排列导航项[1](@ref) */
-        align-items: center;
-    }
-    
-    .product-gallery {
-        grid-template-columns: 1fr; /* 单列布局[4](@ref) */
-    }
-    
-    .product-img {
-        aspect-ratio: 4/3; /* 保持图片比例[3](@ref) */
-    }
+  .product-list a {
+      font-size: 18px;
+  }
 }

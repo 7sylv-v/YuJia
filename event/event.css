@@ -5,7 +5,10 @@
     --tea-white: #F5F0EB; /* 茶白色 */
     --golden-amber: #D4A95D; /* 琥珀金 */
 }
-
+header{
+    position: relative;
+    height: 80px;
+}
 body{
     font-family: 'Fangzheng Xiaobiao Song', serif;
     font-weight: 600;

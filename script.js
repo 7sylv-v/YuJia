@@ -1,38 +1,53 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelector(".slides");
-    const slideItems = document.querySelectorAll(".slide");
-    const prevButton = document.querySelector(".arrow.left");
-    const nextButton = document.querySelector(".arrow.right");
-
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
     let currentIndex = 0;
-    const totalSlides = slideItems.length;
+    let slideInterval;
 
-    function updateSlidePosition() {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // 初始化轮播
+    function initSlider() {
+        slides[0].classList.add('active');
+        startAutoSlide();
     }
 
-    function showNextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
+    // 切换幻灯片
+    function goToSlide(index) {
+        // 移除当前活动状态
+        slides[currentIndex].classList.remove('active');
+        
+        // 更新索引
+        currentIndex = (index + slides.length) % slides.length;
+        
+        // 添加新活动状态
+        slides[currentIndex].classList.add('active');
+        // indicators[currentIndex].classList.add('active');
     }
 
-    function showPreviousSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlidePosition();
+    // 自动轮播
+    function startAutoSlide() {
+        slideInterval = setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 3000);
     }
 
-    // Event listeners for buttons
-    nextButton.addEventListener("click", showNextSlide);
-    prevButton.addEventListener("click", showPreviousSlide);
+    // 指示器点击事件
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            goToSlide(index);
+            startAutoSlide();
+        });
+    });
 
-    // Automatic slide change every 3 seconds
-    setInterval(showNextSlide, 3000);
+    // 初始化
+    initSlider();
 });
 
 
 
 // 全局动效
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', function() {
+
     const sections = document.querySelectorAll('.section-element'); // 找到所有需要监控的元素
 
     // 检查元素是否进入视口的50%位置
@@ -60,9 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
             section.classList.add('visible');
         }
     });
-});
+
 // 制作方法
-document.addEventListener("DOMContentLoaded", () => {
     const steps = document.querySelectorAll(".step");
 
     // 检查元素是否进入视口的函数
@@ -104,15 +118,4 @@ document.addEventListener("DOMContentLoaded", () => {
     //         ticking = true;
     //     }
     // });
-});
-
-//合作伙伴轮播
-$(document).ready(function() {
-    var currentIndex = 0;
-    setInterval(function() {
-      currentIndex = (currentIndex + 1) % $('.partner-card').length;
-      $('.partner-wall').animate({
-        marginLeft: -currentIndex * 200
-      }, 500);
-    }, 3000);
 });
