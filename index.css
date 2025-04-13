@@ -2,7 +2,10 @@
     box-sizing: border-box;
 }
 
-
+header{
+    position: relative;
+    height: 80px;
+}
 /* 自适应 banner 样式 */
 .banner {
     position: relative;
