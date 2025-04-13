@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.join-images');
     const images = document.querySelectorAll('.join-image');
@@ -25,19 +24,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     container.addEventListener('mouseleave', () => {
         container.style.animationPlayState = 'running';
-=======
-document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.to(".join-image", {
-        x: (i, target) => (i - 2) * 100, // 根据索引控制左右移动的距离
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: ".join-images",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1
-        }
->>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
     });
 });

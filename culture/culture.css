@@ -1,7 +1,6 @@
 /* 茶泡文化页面样式 */
 
 /* 页面整体样式 */
-<<<<<<< HEAD
 
 header{
     position: relative;
@@ -17,21 +16,6 @@ header{
     background-color: #fff;
     padding: 50px 30px;
     border-radius: 20px;
-=======
-body {
-    font-family: 'Fangzheng Xiaobiao Song', serif;
-    color: #5a4636;
-    background-color: #f8f5f0;
-    margin: 0;
-    padding: 0;
-}
-
-/* 让整个文化板块居中 */
-.culture-container {
-    width: 80%; /* 居中，占屏幕 80% 宽度 */
-    margin: 50px auto;
-    font-family: 'Fangzheng Xiaobiao Song', serif;
->>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
 }
 
 /* 大标题样式 */
@@ -40,11 +24,7 @@ body {
     font-size: 54px;
     font-weight: bold;
     color: #333;
-<<<<<<< HEAD
     margin: 0 0;
-=======
-    margin-bottom: 50px;
->>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
 }
 
 /* 文化内容区域 */
@@ -62,10 +42,6 @@ body {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
 /* 左侧文字部分（2/3） */
 .culture-text {
     width: 65%; /* 左侧占比 2/3 */
