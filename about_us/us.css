@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     margin: 0;
     padding: 0;
@@ -21,13 +22,45 @@ body {
   .banner-title {
     position: absolute;
     bottom: 60px;
+=======
+/* 页面整体样式 */
+body {
+    font-family: 'Fangzheng Xiaobiao Song', serif;
+    color: #5a4636;
+    background-color: #f8f5f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* 宣传图部分 */
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.banner-title {
+    position: absolute;
+    bottom: 25%;
+>>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
     left: 5%;
     font-size: 48px;
     color: #fffcee;
     font-weight: bold;
+<<<<<<< HEAD
     font-family: 'Fangzheng Xiaobiao Song', serif;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
+=======
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+>>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
 
 /* 介绍部分 */
 .about-container {
@@ -162,6 +195,7 @@ body {
     margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 /* 横向滚动容器 */
 .join-content {
     width: 100%;
@@ -207,6 +241,27 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
+=======
+/* 图片滚动视差部分 */
+.join-images {
+    display: flex;
+    justify-content: flex-start; /* 图片初始位置偏移，形成视差效果 */
+    gap: 20px; /* 图片间距 */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* 单个图片容器 */
+.join-image {
+    flex-shrink: 0;
+    width: 20vw; /* 设定固定比例宽度 */
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: transform 0.5s ease-out;
+>>>>>>> 6aff312a0da3ebad71359c3dcbd1294dc457f484
 }
 
 /* 响应式适配 */
